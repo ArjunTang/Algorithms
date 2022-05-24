@@ -2,22 +2,22 @@
 
 #include<iostream>
 using namespace std;
-int factorValue();
-int termValue();
-int expressionValue();
+int factor_value();
+int term_value();
+int expression_value();
 int main(){
-    cout<<expressionValue()<<endl;
+    cout<<expression_value()<<endl;
     return 0;
 }
 
-int expressinoValue(){
-    int result=termValue();
+int expression_value(){
+    int result=term_value();
     bool more = 1;
     while(more){
         char op=cin.peek();
         if(op=='+'||op=='-'){
             cin.get();
-            int nextTerm=termValue();
+            int nextTerm=term_value();
             if(op=='+'){
                 result+=nextTerm;
             }else{
@@ -30,13 +30,13 @@ int expressinoValue(){
     }
     return result;
 }
-int termValue(){
-    int result=factorValue();
+int term_value(){
+    int result=factor_value();
     while(1){
         char op=cin.peek();
         if(op=='*'||op=='/'){
             cin.get();
-            int nextFactor=factorValue();
+            int nextFactor=factor_value();
             if(op=='*'){
                 result*=nextFactor;
             }else{
@@ -49,12 +49,12 @@ int termValue(){
     }
     return result;
 }
-int factorValue(){
+int factor_value(){
     int result=0;
     char c=cin.peek();
     if(c=='('){
         cin.get();
-        result=expressionValue();
+        result=expression_value();
         cin.get();
     }
     else{
