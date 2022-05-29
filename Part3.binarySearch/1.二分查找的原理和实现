@@ -1,0 +1,43 @@
+1.二分查找的条件：要查找的必须是单调的，即有序的
+2.二分查找的两种写法
+    2.1 BinarySearch函数
+        /* 函数BinarySearch,在包含size个元素的、从小到大排序的int数组a中
+         * 查找元素p,如果找到,返回其下标,否则返回-1.
+         */
+        int BinarySearch(int a[],int size,int p)
+        {
+            int L=0;        //查找区间的左端
+            int R=size-1;   //查找区间的右端
+            while(L<=R){    //如果查找区间不为空
+                int mid=L+(R-L)/2;  //取查找区间正中间元素的下标
+                if(p==a[mid])
+                    return mid;
+                else if(p<a[mid])
+                    R=mid-1;    //设置新的查找区间的右端
+                else
+                    L=mid+1;    //设置新的查找区间的左端 
+            }
+            return -1;      //没有找到
+        }//复杂度O(logN)
+    2.2 LowerBound函数
+        /*
+         * 函数LowerBound,在包含size个元素的、从小到大排序的int数组a中
+         * 查找比给定整数p小的,下标最大的元素的下标。
+         * 找到返回下标,没找到返回-1.
+         */
+        int LowerBound(int a[],int size,int p)
+        {
+            int L=0;        //查找区间的左端
+            int R=size-1;   //查找区间的右端
+            int lastPos=-1; //到目前为止找到的最优解
+            while(L<=R){    //如果查找区间不为空
+                int mid=L+(R-L)/2;  //取查找区间正中间元素的下标
+                if(a[mid]>=p)
+                    R=mid-1;
+                else{
+                    lastPos=mid;
+                    L=mid+1;
+                }
+            }
+            return lastPos;
+        }//复杂度O(logN)
