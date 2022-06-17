@@ -1,8 +1,10 @@
+**************************************************
 1.二分查找的条件：要查找的必须是单调的，即有序的
 2.二分查找的两种写法
     2.1 BinarySearch函数
-        /* 函数BinarySearch,在包含size个元素的、从小到大排序的int数组a中
-         * 查找元素p,如果找到,返回其下标,否则返回-1.
+        /* 函数BinarySearch,在包含size个元素的、从小到
+         * 大排序的int数组a中查找元素p,如果找到,返回其下
+         * 标,否则返回-1.
          */
         int BinarySearch(int a[],int size,int p)
         {
@@ -21,9 +23,9 @@
         }//复杂度O(logN)
     2.2 LowerBound函数
         /*
-         * 函数LowerBound,在包含size个元素的、从小到大排序的int数组a中
-         * 查找比给定整数p小的,下标最大的元素的下标。
-         * 找到返回下标,没找到返回-1.
+         * 函数LowerBound,在包含size个元素的、从小到大排
+         * 序的int数组a中查找比给定整数p小的,下标最大的元
+         * 素的下标。找到返回下标,没找到返回-1.
          */
         int LowerBound(int a[],int size,int p)
         {
