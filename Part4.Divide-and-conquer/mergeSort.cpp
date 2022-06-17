@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+int cnt = 0;
 void Merge(int a[],int s, int m,int e,int tmp[]){
     int pd = 0;
     int p1 = s,p2 = m+1;
@@ -10,6 +11,7 @@ void Merge(int a[],int s, int m,int e,int tmp[]){
         }
         else{
             tmp[pd++] = a[p2++];
+            cnt += m-p1+1;
         }
     }
     while(p1<=m){
@@ -26,20 +28,21 @@ void Merge(int a[],int s, int m,int e,int tmp[]){
 void MergeSort(int a[],int s,int e,int tmp[]){
     if(s<e){
         int m = (s+e)/2;
-        mergeSort(a,s,m,tmp);
-        mergeSort(a,m+1,e,tmp);
-        merge(a,s,m,e,tmp);
+        MergeSort(a,s,m,tmp);
+        MergeSort(a,m+1,e,tmp);
+        Merge(a,s,m,e,tmp);
     }
 }
 
-int a[10] = {24,3,5,7,9,1,2,4,6,8};
+int a[10] = {4,7,9,2,1,5,3,6,8,0};
 int b[10];
 int main(){
     int size = sizeof(a)/sizeof(a[0]);
-    mergeSort(a,0,size-1,b);
+    MergeSort(a,0,size-1,b);
     for(int i=0;i<size;i++){
         cout<<a[i]<<" ";
     }
     cout<<endl;
+    cout<<"逆序数为:"<<cnt<<endl;
     return 0;
 }
