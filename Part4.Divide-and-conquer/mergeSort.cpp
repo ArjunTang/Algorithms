@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-void merge(int a[],int s, int m,int e,int tmp[]){
+void Merge(int a[],int s, int m,int e,int tmp[]){
     int pd = 0;
     int p1 = s,p2 = m+1;
     while(p1<=m && p2<=e){
@@ -23,7 +23,7 @@ void merge(int a[],int s, int m,int e,int tmp[]){
     }
 }
 
-void mergeSort(int a[],int s,int e,int tmp[]){
+void MergeSort(int a[],int s,int e,int tmp[]){
     if(s<e){
         int m = (s+e)/2;
         mergeSort(a,s,m,tmp);
